@@ -1,0 +1,30 @@
+{
+  "name": "tinymce-contentful-extension",
+  "version": "1.0.0",
+  "description": "This extension enables TinyMCE Editor with full capabilities into Contentful Managment System",
+  "main": "src/index.html",
+  "scripts": {
+    "test": "run tinygit status "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dawa55/Full-TinyMCE-Contentful-Extension.git"
+  },
+  "keywords": [
+    "contentful",
+    "extension",
+    "editor",
+    "with",
+    "images",
+    "support"
+  ],
+  "author": "dandezero",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dawa55/Full-TinyMCE-Contentful-Extension/issues"
+  },
+  "homepage": "https://github.com/dawa55/Full-TinyMCE-Contentful-Extension#readme",
+  "dependencies": {
+    "contentful-management": "^5.26.1"
+  }
+}
