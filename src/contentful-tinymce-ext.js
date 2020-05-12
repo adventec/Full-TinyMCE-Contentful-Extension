@@ -1,19 +1,20 @@
 window.contentfulExtension.init(function (api) {
-    var apiKey = api.parameters.installation.apiKey;
-    var channel = api.parameters.installation.channel;
+    const apiKey = api.parameters.installation.apiKey;
+    const channel = api.parameters.installation.channel;
     const spaceId = api.ids.space;
     const environmentId = api.ids.environment;
     const accessToken = api.parameters.installation.cmaToken;
-    var sub = location.host == "contentful.staging.tiny.cloud" ? "cloud-staging" : "cloud";
-    var tinymceUrl = "https://" + sub + ".tinymce.com/" + channel + "/tinymce.min.js?apiKey=" + apiKey;
+    const sub = location.host == "contentful.staging.tiny.cloud" ? "cloud-staging" : "cloud";
+    // const tinymceUrl = "https://" + sub + ".tinymce.com/" + channel + "/tinymce.min.js?apiKey=" + apiKey;
+    const tinymceUrl = "https://cdn.tiny.cloud/1/" + apiKey + "/tinymce/" + channel + "/tinymce.min.js";
 
     /**
-     * This function imports tiny mcd script including in the url the token 
+     * This function imports tinymce script including in the url the token 
      * @param {*} src 
      * @param {*} onload 
      */
     function loadScript(src, onload) {
-        var script = document.createElement('script');
+        let script = document.createElement('script');
         script.setAttribute('src', src);
         script.setAttribute('referrerpolicy', "origin");
         script.onload = onload;
@@ -26,11 +27,11 @@ window.contentfulExtension.init(function (api) {
     
     function tinymceForContentful(api) {
         api.window.startAutoResizer();
-        var tb = tweak(api.parameters.instance.toolbar);
-        var mb = tweak(api.parameters.instance.menubar);
+        const toolbar1 = tweak(api.parameters.instance.toolbar1);
+        const toolbar2 = tweak(api.parameters.instance.toolbar2);
+        const menubar = tweak(api.parameters.instance.menubar);
         
         let fileName = '';
-        let fileToBase64;
         let contentType = '';
         let assetUrl = "";
 
@@ -48,10 +49,9 @@ window.contentfulExtension.init(function (api) {
         tinymce.init({
             selector: "#editor",
             plugins: api.parameters.instance.plugins,
-            toolbar: [
-                tb, 'undo redo image table link code codesample'
-            ],
-            menubar: mb,
+            toolbar_mode: 'sliding',
+            toolbar: [ toolbar1, toolbar2 ],
+            menubar: menubar,
             max_height: 500,
             min_height: 300,
             autoresize_bottom_margin: 15,
@@ -59,8 +59,8 @@ window.contentfulExtension.init(function (api) {
             file_picker_types: 'image',
             image_title: true,
             image_caption: true,            
-            automatic_uploads: true,          // Allows drag images into editor
-            images_upload_url: "/some.js",    // Set a value for images_upload_url and the "Upload tab" will be showed to pick an image from your system*/
+            automatic_uploads: true, // Allows drag images into editor
+            images_upload_url: "/some.js", // Set a value for images_upload_url and the "Upload tab" will be showed to pick an image from your system*/
             images_upload_base_path: "/some", // Shows a button to upload images
             file_picker_callback: function (success, value, meta) {
                 /* When a function is assigned to this parameter, an "upload" button appears close to the file url field 
@@ -74,10 +74,10 @@ window.contentfulExtension.init(function (api) {
                     var file = this.files[0];
                     var reader = new FileReader();
                     reader.onload = function () {
+
                         /* Note: Now we need to register the blob in TinyMCEs image blob registry. 
                         In the next release this part hopefully won't be necessary, as we are looking to handle it internally. */
 
-                        
                         var id = 'blobid' + (new Date()).getTime();
                         var blobCache = tinymce.activeEditor.editorUpload.blobCache;
                         var base64 = reader.result.split(',')[1];

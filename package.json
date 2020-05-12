@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dawa55/Full-TinyMCE-Contentful-Extension.git"
+    "url": "git+https://github.com/adventec/Full-TinyMCE-Contentful-Extension.git"
   },
   "keywords": [
     "contentful",
@@ -21,9 +21,9 @@
   "author": "dandezero",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dawa55/Full-TinyMCE-Contentful-Extension/issues"
+    "url": "https://github.com/adventec/Full-TinyMCE-Contentful-Extension/issues"
   },
-  "homepage": "https://github.com/dawa55/Full-TinyMCE-Contentful-Extension#readme",
+  "homepage": "https://github.com/adventec/Full-TinyMCE-Contentful-Extension#readme",
   "dependencies": {
     "contentful-management": "^5.26.1"
   }
