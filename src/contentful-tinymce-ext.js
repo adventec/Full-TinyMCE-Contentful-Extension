@@ -67,6 +67,8 @@ window.contentfulExtension.init(function (api) {
                    that gives the option of picking a file from the system to be uploaded. */
                 /* Use the success callback to fill the fields (url, title, alt) */
 
+                document.querySelector("button[title=Save]").setAttribute("disabled","")
+
                 var input = document.createElement('input');
                 input.setAttribute('type', 'file');
                 input.setAttribute('accept', 'image/*');
@@ -77,6 +79,11 @@ window.contentfulExtension.init(function (api) {
 
                         /* Note: Now we need to register the blob in TinyMCEs image blob registry. 
                         In the next release this part hopefully won't be necessary, as we are looking to handle it internally. */
+
+
+
+
+
 
                         var id = 'blobid' + (new Date()).getTime();
                         var blobCache = tinymce.activeEditor.editorUpload.blobCache;
@@ -170,6 +177,7 @@ window.contentfulExtension.init(function (api) {
                     description: {
                         'es': 'descripción'
                     },
+
                     file: {
                         'es': {
                             contentType: contentType,
@@ -189,6 +197,7 @@ window.contentfulExtension.init(function (api) {
                 return true
             })
             .then(() => {
+                document.querySelector("button[title=Save]").removeAttribute("disabled")
                 console.log("image processed")
                 success(assetUrl,{title: fileName, alt: fileName})
             })
