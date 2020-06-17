@@ -6,9 +6,9 @@ This extension allows to implement tiny mce editor into contenfull with full cap
 4. Wordcount.
 5. Font select.
 6. ...many more.
-a
+
 ![aaaa](https://github.com/adventec/Full-TinyMCE-Contentful-Extension/blob/master/ScreenShot00130.jpg "aaaa")
-a
+
 ## Installation
 - ### Self hosted
 If you want to host the extension by your own, clone the repo, run the command npm i to install dependencies and then upload the project to your hosting
