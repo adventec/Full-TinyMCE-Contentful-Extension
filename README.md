@@ -7,17 +7,26 @@ This extension allows to implement tiny mce editor into contenfull with full cap
 5. Font select.
 6. ...many more.
 
-![aaaa](https://github.com/adventec/Full-TinyMCE-Contentful-Extension/blob/master/ScreenShot00130.jpg "aaaa")
+![Contentful tiny mce upload images](https://github.com/adventec/Full-TinyMCE-Contentful-Extension/blob/master/ScreenShot00130.jpg "Contentful tiny mce upload images")
 
 ## Installation
+
 - ### Self hosted
-If you want to host the extension by your own, clone the repo, run the command npm i to install dependencies and then upload the project to your hosting
-- ### Contentful hosted
-Follow contentfull instructions
+		If you want to host the extension by your own, clone the repo.
+		Run the command `npm i` to install dependencies
+		Upload the project to your hosting
+
+
 
 ## UPDATING extension.json
-Get the extension id first by running the command: 
-`contentful extension list`
+1. Install the Contentful Management CLI by running
 
-To update extension.json run command: 
-`contentful extension.json update --id --descriptor extension.json --force`
+   ` npm i contentful-management`
+   
+2. Get the extension id first by running the command: 
+
+     `contentful extension list`
+	 
+3. To update extension.json run command: 
+
+	`contentful extension.json update --id --descriptor extension.json --force`
