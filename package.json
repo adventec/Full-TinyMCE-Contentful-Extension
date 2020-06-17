@@ -1,10 +1,10 @@
 {
-  "name": "tinymce-contentful-extension",
+  "name": "full-tiny-mce-contentful-extension",
   "version": "1.0.0",
   "description": "This extension enables TinyMCE Editor with full capabilities into Contentful Managment System",
   "main": "src/index.html",
   "scripts": {
-    "test": "run tinygit status "
+    "test": "run tiny"
   },
   "repository": {
     "type": "git",
@@ -16,9 +16,9 @@
     "editor",
     "with",
     "images",
-    "support"
+    "upload"
   ],
-  "author": "dandezero",
+  "author": "Adventec",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/adventec/Full-TinyMCE-Contentful-Extension/issues"
